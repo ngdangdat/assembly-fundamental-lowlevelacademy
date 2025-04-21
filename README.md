@@ -109,3 +109,37 @@ Video notes
 Notes
 - You can do whatever you want with registers r0-r10.
 - However, in calling convention, r0-r3 and r7 have special use cases.
+
+## Assembly Language Syntax
+ARM instruction format
+```as
+<opcode>{<cond>} <Rd>, <Rn>, <operand2>
+```
+
+`00_infinity_loop.s`
+```as
+.global _start
+.section .text
+
+_start:
+    mov r0, pc
+    sub r0 r0, #8
+    bx r0
+```
+## Data Movement Instructions
+Load, Store, Multiple Memory Operations
+
+### Load operations
+LDR (Load Register): Load variable from memory to register
+
+Examined C code
+```C
+#include <stdio.h>
+#include <stdint.h>
+
+uint32_t val = 0;
+
+int main() {
+    val = 32;
+}
+```
